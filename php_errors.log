@@ -1,0 +1,37 @@
+[23-Jan-2026 00:18:07 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 00:18:07 Europe/Berlin] Time: 2026-01-23 00:18:07
+[23-Jan-2026 00:18:07 Europe/Berlin] Method: POST
+[23-Jan-2026 00:18:07 Europe/Berlin] POST Data: {"ho_ten":"Trần Văn ACB","nam_sinh":"1999","so_dt":"123456789","cccd_so":"234567890","ngay_cap":"2026-01-22","noi_cap":"Cục cảnh sát","noi_dktt":"Cần Thơ","ten_tai_san":"IPhone Promax\r\nSamsung 77","so_tien":"13000000","bang_chu":"mười ba triệu đồng","gio":"06","phut":"10","ngay_cam":"2026-01-22","ky_1":"2026-01-22","ky_2":"2026-01-22"}
+[23-Jan-2026 00:18:07 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 00:18:07 Europe/Berlin] Data received - Name: Trần Văn ACB, Amount: 13000000
+[23-Jan-2026 00:18:07 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 00:18:07 Europe/Berlin] PHP Notice:  tempnam(): file created in the system's temporary directory in /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/vendor/phpoffice/phpword/src/PhpWord/TemplateProcessor.php on line 110
+[23-Jan-2026 00:18:07 Europe/Berlin] ERROR: Could not create a temporary file with unique name in the specified directory. in /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/vendor/phpoffice/phpword/src/PhpWord/TemplateProcessor.php:112
+[23-Jan-2026 00:18:41 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 00:18:41 Europe/Berlin] Time: 2026-01-23 00:18:41
+[23-Jan-2026 00:18:41 Europe/Berlin] Method: POST
+[23-Jan-2026 00:18:41 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 00:18:41 Europe/Berlin] Data received - Name: Trần Văn ACB, Amount: 13000000
+[23-Jan-2026 00:18:41 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 00:18:41 Europe/Berlin] PHP Notice:  tempnam(): file created in the system's temporary directory in /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/vendor/phpoffice/phpword/src/PhpWord/TemplateProcessor.php on line 110
+[23-Jan-2026 00:18:41 Europe/Berlin] ERROR: Could not create a temporary file with unique name in the specified directory. in /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/vendor/phpoffice/phpword/src/PhpWord/TemplateProcessor.php:112
+[23-Jan-2026 00:19:38 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 00:19:38 Europe/Berlin] Time: 2026-01-23 00:19:38
+[23-Jan-2026 00:19:38 Europe/Berlin] Method: POST
+[23-Jan-2026 00:19:38 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 00:19:38 Europe/Berlin] Data received - Name: Trần Văn A12, Amount: 21414412
+[23-Jan-2026 00:19:38 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 00:19:38 Europe/Berlin] PHP Notice:  tempnam(): file created in the system's temporary directory in /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/vendor/phpoffice/phpword/src/PhpWord/TemplateProcessor.php on line 110
+[23-Jan-2026 00:19:38 Europe/Berlin] ERROR: Could not create a temporary file with unique name in the specified directory. in /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/vendor/phpoffice/phpword/src/PhpWord/TemplateProcessor.php:112
+[23-Jan-2026 00:36:23 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 00:36:23 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 00:36:23 Europe/Berlin] Data - ho_ten: Trần Văn A12, so_tien: 21414412
+[23-Jan-2026 00:36:23 Europe/Berlin] Created temp directory
+[23-Jan-2026 00:36:23 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 00:36:24 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 00:36:24 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Trần_Văn_A12_20260123003624.docx
+[23-Jan-2026 00:36:24 Europe/Berlin] File created: 20692 bytes
+[23-Jan-2026 00:36:24 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 00:36:24 Europe/Berlin] Word opened successfully
+[23-Jan-2026 00:36:24 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Trần_Văn_A12_20260123003624.docx","file_url":"data\/HopDong_Trần_Văn_A12_20260123003624.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Trần_Văn_A12_20260123003624.docx","file_size":"20.21 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 00:36:24 Europe/Berlin] === CREATE_CONTRACT END ===
