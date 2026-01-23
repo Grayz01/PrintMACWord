@@ -39,8 +39,6 @@ try {
     $gio = $_POST['gio'] ?? '';
     $phut = $_POST['phut'] ?? '';
     $ngay_cam = $_POST['ngay_cam'] ?? '';
-    $ky_1 = $_POST['ky_1'] ?? '';
-    $ky_2 = $_POST['ky_2'] ?? '';
     
     error_log("Data - ho_ten: $ho_ten, so_tien: $so_tien");
     
@@ -72,18 +70,19 @@ try {
     // Đặt thư mục temp cho hệ thống (tùy chọn)
     putenv("TMPDIR=" . $tempDir);
     
-    // Format ngày
+    // Format ngày dạng dd/MM/YYYY
     function formatDate($date) {
         if (empty($date)) return '';
         $timestamp = strtotime($date);
         return $timestamp ? date('d/m/Y', $timestamp) : $date;
     }
     
+    // Format ngày full thành dd/MM/YYYY
     function formatDateFull($date) {
         if (empty($date)) return '';
         $timestamp = strtotime($date);
         if (!$timestamp) return $date;
-        return 'Ngày ' . date('d', $timestamp) . ' tháng ' . date('m', $timestamp) . ' năm ' . date('Y', $timestamp);
+        return date('d/m/Y', $timestamp);
     }
     
     // Tạo TemplateProcessor
@@ -109,8 +108,6 @@ try {
     $templateProcessor->setValue('phut', str_pad($phut, 2, '0', STR_PAD_LEFT));
     $templateProcessor->setValue('ngay_cam', formatDate($ngay_cam));
     $templateProcessor->setValue('ngay_cam_full', formatDateFull($ngay_cam));
-    $templateProcessor->setValue('ky_1', formatDate($ky_1));
-    $templateProcessor->setValue('ky_2', formatDate($ky_2));
     
     // Tạo tên file
     $timestamp = date('YmdHis');

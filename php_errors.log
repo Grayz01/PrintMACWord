@@ -35,3 +35,139 @@
 [23-Jan-2026 00:36:24 Europe/Berlin] Word opened successfully
 [23-Jan-2026 00:36:24 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Trần_Văn_A12_20260123003624.docx","file_url":"data\/HopDong_Trần_Văn_A12_20260123003624.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Trần_Văn_A12_20260123003624.docx","file_size":"20.21 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
 [23-Jan-2026 00:36:24 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 06:02:57 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 06:02:57 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 06:02:57 Europe/Berlin] Data - ho_ten: Trần Hà Nhân, so_tien: 11111111
+[23-Jan-2026 06:02:57 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 06:02:57 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 06:02:57 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Trần_Hà_Nhân_20260123060257.docx
+[23-Jan-2026 06:02:57 Europe/Berlin] File created: 20820 bytes
+[23-Jan-2026 06:02:57 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 06:02:57 Europe/Berlin] Word opened successfully
+[23-Jan-2026 06:02:57 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Trần_Hà_Nhân_20260123060257.docx","file_url":"data\/HopDong_Trần_Hà_Nhân_20260123060257.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Trần_Hà_Nhân_20260123060257.docx","file_size":"20.33 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 06:02:57 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 06:04:37 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 06:04:37 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 06:04:37 Europe/Berlin] Data - ho_ten: Trần Hà Nhân, so_tien: 11111111
+[23-Jan-2026 06:04:37 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 06:04:37 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 06:04:37 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Trần_Hà_Nhân_20260123060437.docx
+[23-Jan-2026 06:04:37 Europe/Berlin] File created: 20831 bytes
+[23-Jan-2026 06:04:37 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 06:04:37 Europe/Berlin] Word opened successfully
+[23-Jan-2026 06:04:37 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Trần_Hà_Nhân_20260123060437.docx","file_url":"data\/HopDong_Trần_Hà_Nhân_20260123060437.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Trần_Hà_Nhân_20260123060437.docx","file_size":"20.34 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 06:04:37 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 06:52:55 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 06:52:55 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 06:52:55 Europe/Berlin] Data - ho_ten: Trần Hà Nhân, so_tien: 11111111
+[23-Jan-2026 06:52:55 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 06:52:55 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 06:52:55 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Trần_Hà_Nhân_20260123065255.docx
+[23-Jan-2026 06:52:55 Europe/Berlin] File created: 20831 bytes
+[23-Jan-2026 06:52:55 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 06:52:55 Europe/Berlin] Word opened successfully
+[23-Jan-2026 06:52:55 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Trần_Hà_Nhân_20260123065255.docx","file_url":"data\/HopDong_Trần_Hà_Nhân_20260123065255.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Trần_Hà_Nhân_20260123065255.docx","file_size":"20.34 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 06:52:55 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 06:53:25 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 06:53:25 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 06:53:25 Europe/Berlin] Data - ho_ten: , so_tien: 
+[23-Jan-2026 06:53:25 Europe/Berlin] ERROR in create_contract.php: Vui lòng nhập họ tên
+[23-Jan-2026 07:26:31 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 07:26:31 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 07:26:31 Europe/Berlin] Data - ho_ten: Trần Văn C, so_tien: 2352636
+[23-Jan-2026 07:26:31 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 07:26:31 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 07:26:31 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Trần_Văn_C_20260123072631.docx
+[23-Jan-2026 07:26:31 Europe/Berlin] File created: 20798 bytes
+[23-Jan-2026 07:26:31 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 07:26:32 Europe/Berlin] Word opened successfully
+[23-Jan-2026 07:26:32 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Trần_Văn_C_20260123072631.docx","file_url":"data\/HopDong_Trần_Văn_C_20260123072631.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Trần_Văn_C_20260123072631.docx","file_size":"20.31 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 07:26:32 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 08:05:32 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 08:05:32 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 08:05:32 Europe/Berlin] Data - ho_ten: Trần Văn Sinh, so_tien: 6666660
+[23-Jan-2026 08:05:32 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 08:05:32 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 08:05:32 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Trần_Văn_Sinh_20260123080532.docx
+[23-Jan-2026 08:05:32 Europe/Berlin] File created: 20827 bytes
+[23-Jan-2026 08:05:32 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 08:05:33 Europe/Berlin] Word opened successfully
+[23-Jan-2026 08:05:33 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Trần_Văn_Sinh_20260123080532.docx","file_url":"data\/HopDong_Trần_Văn_Sinh_20260123080532.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Trần_Văn_Sinh_20260123080532.docx","file_size":"20.34 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 08:05:33 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 08:17:27 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 08:17:27 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 08:17:27 Europe/Berlin] Data - ho_ten: Trần Văn Sinh, so_tien: 6666660
+[23-Jan-2026 08:17:27 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 08:17:27 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 08:17:27 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Trần_Văn_Sinh_20260123081727.docx
+[23-Jan-2026 08:17:27 Europe/Berlin] File created: 21657 bytes
+[23-Jan-2026 08:17:27 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 08:17:27 Europe/Berlin] Word opened successfully
+[23-Jan-2026 08:17:27 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Trần_Văn_Sinh_20260123081727.docx","file_url":"data\/HopDong_Trần_Văn_Sinh_20260123081727.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Trần_Văn_Sinh_20260123081727.docx","file_size":"21.15 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 08:17:27 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 08:21:50 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 08:21:50 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 08:21:50 Europe/Berlin] Data - ho_ten: Trần Văn Sinh, so_tien: 8630000
+[23-Jan-2026 08:21:50 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 08:21:50 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 08:21:50 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Trần_Văn_Sinh_20260123082150.docx
+[23-Jan-2026 08:21:50 Europe/Berlin] File created: 20866 bytes
+[23-Jan-2026 08:21:50 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 08:21:50 Europe/Berlin] Word opened successfully
+[23-Jan-2026 08:21:50 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Trần_Văn_Sinh_20260123082150.docx","file_url":"data\/HopDong_Trần_Văn_Sinh_20260123082150.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Trần_Văn_Sinh_20260123082150.docx","file_size":"20.38 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 08:21:50 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 08:24:30 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 08:24:30 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 08:24:30 Europe/Berlin] Data - ho_ten: Trần Văn Sinh, so_tien: 8630000
+[23-Jan-2026 08:24:30 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 08:24:30 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 08:24:30 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Trần_Văn_Sinh_20260123082430.docx
+[23-Jan-2026 08:24:30 Europe/Berlin] File created: 21707 bytes
+[23-Jan-2026 08:24:30 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 08:24:30 Europe/Berlin] Word opened successfully
+[23-Jan-2026 08:24:30 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Trần_Văn_Sinh_20260123082430.docx","file_url":"data\/HopDong_Trần_Văn_Sinh_20260123082430.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Trần_Văn_Sinh_20260123082430.docx","file_size":"21.20 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 08:24:30 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 08:25:47 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 08:25:47 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 08:25:47 Europe/Berlin] Data - ho_ten: Nguyễn Văn ABCD, so_tien: 8630000
+[23-Jan-2026 08:25:47 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 08:25:47 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 08:25:47 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Nguyễn_Văn_ABCD_20260123082547.docx
+[23-Jan-2026 08:25:47 Europe/Berlin] File created: 21679 bytes
+[23-Jan-2026 08:25:47 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 08:25:47 Europe/Berlin] Word opened successfully
+[23-Jan-2026 08:25:47 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Nguyễn_Văn_ABCD_20260123082547.docx","file_url":"data\/HopDong_Nguyễn_Văn_ABCD_20260123082547.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Nguyễn_Văn_ABCD_20260123082547.docx","file_size":"21.17 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 08:25:47 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 08:30:25 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 08:30:25 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 08:30:25 Europe/Berlin] Data - ho_ten: Nguyễn Văn ABCD, so_tien: 8630000
+[23-Jan-2026 08:30:25 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 08:30:25 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 08:30:25 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Nguyễn_Văn_ABCD_20260123083025.docx
+[23-Jan-2026 08:30:25 Europe/Berlin] File created: 21679 bytes
+[23-Jan-2026 08:30:25 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 08:30:25 Europe/Berlin] Word opened successfully
+[23-Jan-2026 08:30:25 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Nguyễn_Văn_ABCD_20260123083025.docx","file_url":"data\/HopDong_Nguyễn_Văn_ABCD_20260123083025.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Nguyễn_Văn_ABCD_20260123083025.docx","file_size":"21.17 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 08:30:25 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 08:36:49 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 08:36:49 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 08:36:49 Europe/Berlin] Data - ho_ten: Nguyễn Văn ABCD, so_tien: 8630000
+[23-Jan-2026 08:36:49 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 08:36:49 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 08:36:49 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Nguyễn_Văn_ABCD_20260123083649.docx
+[23-Jan-2026 08:36:49 Europe/Berlin] File created: 21775 bytes
+[23-Jan-2026 08:36:49 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 08:36:49 Europe/Berlin] Word opened successfully
+[23-Jan-2026 08:36:49 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Nguyễn_Văn_ABCD_20260123083649.docx","file_url":"data\/HopDong_Nguyễn_Văn_ABCD_20260123083649.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Nguyễn_Văn_ABCD_20260123083649.docx","file_size":"21.26 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 08:36:49 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 08:47:42 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 08:47:42 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 08:47:42 Europe/Berlin] Data - ho_ten: rghjfghj, so_tien: 456789
+[23-Jan-2026 08:47:42 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 08:47:42 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 08:47:42 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_rghjfghj_20260123084742.docx
+[23-Jan-2026 08:47:42 Europe/Berlin] File created: 20901 bytes
+[23-Jan-2026 08:47:42 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 08:47:42 Europe/Berlin] Word opened successfully
+[23-Jan-2026 08:47:42 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_rghjfghj_20260123084742.docx","file_url":"data\/HopDong_rghjfghj_20260123084742.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_rghjfghj_20260123084742.docx","file_size":"20.41 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 08:47:42 Europe/Berlin] === CREATE_CONTRACT END ===
