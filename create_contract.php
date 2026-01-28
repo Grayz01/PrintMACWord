@@ -1,3 +1,4 @@
+
 <?php
 // create_contract.php - Phiên bản sửa theo cấu trúc process.php
 error_reporting(E_ALL);
@@ -25,7 +26,40 @@ try {
         throw new Exception('Chỉ chấp nhận POST request');
     }
     
-    // Lấy dữ liệu
+    // ========== KẾT NỐI DATABASE ==========
+    require_once __DIR__ . '/database.php';
+    $db = new Database();
+    $conn = $db->connect();
+    
+    // ========== LẤY MÃ HỢP ĐỒNG TỰ ĐỘNG ==========
+    // 1. Tìm mã hợp đồng gần nhất
+    $stmt = $conn->prepare("SELECT maHopDong FROM HopDong WHERE maHopDong REGEXP '^HD[0-9]+$' ORDER BY CAST(SUBSTRING(maHopDong, 3) AS UNSIGNED) DESC LIMIT 1");
+    $stmt->execute();
+    $latestContract = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    $autoMaHopDong = 'HD001'; // Mặc định
+    
+    if ($latestContract && isset($latestContract['maHopDong'])) {
+        $latestCode = $latestContract['maHopDong'];
+        
+        // Trích xuất số từ mã (HD001 -> 001)
+        if (preg_match('/HD(\d+)/', $latestCode, $matches)) {
+            $latestNumber = intval($matches[1]);
+            $newNumber = $latestNumber + 1;
+            
+            // Format về dạng HD001, HD010, HD100
+            $autoMaHopDong = 'HD' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+        } else {
+            // Nếu mã không đúng định dạng, vẫn tăng số
+            $autoMaHopDong = 'HD' . str_pad(1, 3, '0', STR_PAD_LEFT);
+        }
+    }
+    
+    // Kiểm tra xem client có gửi mã hợp đồng không
+    // Nếu không gửi, dùng mã tự động
+    $maHopDong = $_POST['maHopDong'] ?? $autoMaHopDong;
+    
+    // Lấy các dữ liệu khác
     $ho_ten = $_POST['ho_ten'] ?? '';
     $nam_sinh = $_POST['nam_sinh'] ?? '';
     $so_dt = $_POST['so_dt'] ?? '';
@@ -40,12 +74,48 @@ try {
     $phut = $_POST['phut'] ?? '';
     $ngay_cam = $_POST['ngay_cam'] ?? '';
     
-    error_log("Data - ho_ten: $ho_ten, so_tien: $so_tien");
+    error_log("Auto Generated maHopDong: $autoMaHopDong");
+    error_log("Data - maHopDong: $maHopDong, ho_ten: $ho_ten, so_tien: $so_tien");
     
     // Validate
+    if (empty($maHopDong)) throw new Exception('Không thể tạo mã hợp đồng tự động');
     if (empty($ho_ten)) throw new Exception('Vui lòng nhập họ tên');
     if (empty($cccd_so)) throw new Exception('Vui lòng nhập số CCCD');
     if (empty($so_tien)) throw new Exception('Vui lòng nhập số tiền');
+    
+    // Kiểm tra mã hợp đồng đã tồn tại chưa
+    $stmt = $conn->prepare("SELECT idHopDong FROM HopDong WHERE maHopDong = ?");
+    $stmt->execute([$maHopDong]);
+    $existing = $stmt->fetch();
+    
+    if ($existing) {
+        // Nếu mã đã tồn tại, thử tăng số lên
+        $attempts = 0;
+        $newMaHopDong = $maHopDong;
+        
+        while ($existing && $attempts < 10) {
+            if (preg_match('/HD(\d+)/', $newMaHopDong, $matches)) {
+                $latestNumber = intval($matches[1]);
+                $newNumber = $latestNumber + 1;
+                $newMaHopDong = 'HD' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
+            } else {
+                $newMaHopDong = $newMaHopDong . '_1';
+            }
+            
+            $stmt->execute([$newMaHopDong]);
+            $existing = $stmt->fetch();
+            $attempts++;
+        }
+        
+        $maHopDong = $newMaHopDong;
+    }
+    
+    // Tạo mới bản ghi với mã hợp đồng
+    $stmt = $conn->prepare("INSERT INTO HopDong (maHopDong) VALUES (?)");
+    $stmt->execute([$maHopDong]);
+    $idHopDong = $conn->lastInsertId();
+    
+    error_log("Generated ID: $idHopDong, maHopDong: $maHopDong");
     
     // Kiểm tra template
     $templatePath = __DIR__ . '/templates/contract_template.docx';
@@ -108,12 +178,14 @@ try {
     $templateProcessor->setValue('phut', str_pad($phut, 2, '0', STR_PAD_LEFT));
     $templateProcessor->setValue('ngay_cam', formatDate($ngay_cam));
     $templateProcessor->setValue('ngay_cam_full', formatDateFull($ngay_cam));
+    $templateProcessor->setValue('idHopDong', $idHopDong);
+    $templateProcessor->setValue('maHopDong', $maHopDong);
     
     // Tạo tên file
     $timestamp = date('YmdHis');
     $cleanName = preg_replace('/[^a-zA-Z0-9_\x{00C0}-\x{1EF9}\s]/u', '', $ho_ten);
     $cleanName = str_replace(' ', '_', $cleanName);
-    $filename = 'HopDong_' . $cleanName . '_' . $timestamp . '.docx';
+    $filename = 'HopDong_' . $maHopDong . '_' . $cleanName . '_' . $timestamp . '.docx';
     $filepath = $dataDir . '/' . $filename;
     
     // Lưu file
@@ -161,10 +233,13 @@ try {
         }
     }
     
-    // Response
+    // Response - thêm ID và mã hợp đồng vào response
     $response = [
         'success' => true,
         'message' => '✅ Tạo hợp đồng thành công!',
+        'idHopDong' => $idHopDong,
+        'maHopDong' => $maHopDong,
+        'auto_generated' => ($_POST['maHopDong'] ?? '') === '', // Kiểm tra xem mã có được tự động tạo không
         'filename' => $filename,
         'file_url' => 'data/' . $filename,
         'file_path' => $filepath,

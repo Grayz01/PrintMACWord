@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <style>
-        /* CSS styles giữ nguyên */
         body {
             background-color: #f8f9fa;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -221,6 +220,69 @@
             font-weight: 600;
         }
         
+        .id-display {
+            background-color: #f8f9fa;
+            border: 2px dashed #3498db;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            display: none;
+        }
+        
+        .id-number {
+            color: #e74c3c;
+            font-size: 1.3rem;
+            background-color: #fff;
+            padding: 5px 15px;
+            border-radius: 5px;
+            border: 1px solid #3498db;
+            margin-left: 5px;
+        }
+        
+        .ma-hopdong-input {
+            max-width: 300px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        
+        .ma-hopdong-input:focus {
+            border-color: #27ae60;
+            box-shadow: 0 0 0 0.25rem rgba(39, 174, 96, 0.25);
+        }
+        
+        .auto-ma-hopdong-display {
+            background-color: #f8f9fa;
+            border: 2px solid #27ae60;
+            color: #2c3e50;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .auto-ma-hopdong-hint {
+            color: #27ae60;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .auto-ma-hopdong-section {
+            background-color: #e8f6f0;
+            border: 2px dashed #27ae60;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
         @media (max-width: 768px) {
             .form-container {
                 padding: 20px;
@@ -235,6 +297,26 @@
             .btn-primary, .btn-success {
                 padding: 10px 20px;
                 font-size: 16px;
+            }
+            
+            .id-display {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+            
+            .id-number {
+                font-size: 1.1rem;
+                padding: 3px 10px;
+            }
+            
+            .ma-hopdong-input {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+            
+            .auto-ma-hopdong-display {
+                font-size: 1rem;
+                padding: 8px 12px;
             }
         }
     </style>
@@ -255,6 +337,14 @@
                 <i class="bi bi-file-earmark-text me-2"></i>HỢP ĐỒNG CẦM CỐ TÀI SẢN
             </h2>
             
+            <!-- Hiển thị ID hợp đồng đã tạo -->
+            <div id="idDisplaySection" class="id-display">
+                <i class="bi bi-hash me-2"></i>
+                <span>Số hợp đồng đã tạo: </span>
+                <span id="currentIdHopDong" class="id-number"></span>
+                <span class="text-muted ms-2">/HĐCC</span>
+            </div>
+            
             <!-- Thông báo -->
             <div class="alert alert-info alert-custom mb-4">
                 <i class="bi bi-info-circle me-2"></i>
@@ -263,6 +353,40 @@
             </div>
 
             <form id="contractForm">
+                <!-- Thông tin mã hợp đồng TỰ ĐỘNG -->
+                <div class="auto-ma-hopdong-section">
+                    <h5 class="section-title">
+                        <i class="bi bi-card-checklist me-2"></i>THÔNG TIN MÃ HỢP ĐỒNG (TỰ ĐỘNG)
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <label class="col-sm-3 col-form-label">MÃ HỢP ĐỒNG</label>
+                        <div class="col-sm-9">
+                            <!-- Hiển thị mã hợp đồng tự động (readonly) -->
+                            <div class="form-control auto-ma-hopdong-display" 
+                                 id="autoMaHopDongDisplay" style="display: block;">
+                                <span id="autoMaHopDongText">Đang tải mã hợp đồng...</span>
+                            </div>
+                            <small class="text-muted auto-ma-hopdong-hint" id="autoMaHopDongHint">
+                                <i class="bi bi-check-circle me-1"></i>
+                                Mã hợp đồng được tạo tự động từ hệ thống
+                            </small>
+                            <div id="maHopDongLoading" style="display: none;">
+                                <div class="spinner-border spinner-border-sm text-primary me-2"></div>
+                                <small class="text-primary">Đang tạo mã hợp đồng...</small>
+                            </div>
+                            
+                            <!-- Input ẩn để lưu mã hợp đồng -->
+                            <input type="hidden" name="maHopDong" id="maHopDong" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info alert-custom mb-0">
+                        <i class="bi bi-lightbulb me-2"></i>
+                        <strong>Thông tin:</strong> Mã hợp đồng được tạo tự động dựa trên số thứ tự trong hệ thống (VD: HD001, HD002, HD003...)
+                    </div>
+                </div>
+
                 <!-- Thông tin cá nhân -->
                 <h5 class="section-title">
                     <i class="bi bi-person-badge me-2"></i>THÔNG TIN CÁ NHÂN
@@ -376,6 +500,10 @@
                                 <div class="file-info">
                                     <strong><i class="bi bi-file-word me-2"></i>Tên file:</strong> 
                                     <span id="fileName" class="fw-bold text-primary"></span><br>
+                                    <strong><i class="bi bi-hash me-2"></i>Mã hợp đồng:</strong> 
+                                    <span id="fileMaHopDong" class="fw-bold text-danger"></span><br>
+                                    <strong><i class="bi bi-hash me-2"></i>Số thứ tự:</strong> 
+                                    <span id="fileIdHopDong" class="fw-bold text-info"></span><br>
                                     <strong><i class="bi bi-folder me-2"></i>Vị trí lưu:</strong> 
                                     <span id="filePath" class="text-muted"></span><br>
                                     <strong><i class="bi bi-hdd me-2"></i>Kích thước:</strong> 
@@ -415,596 +543,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Hệ thống hợp đồng cầm cố đã sẵn sàng!');
-            
-            // Biến lưu trữ thông tin file hiện tại
-            let currentFilePath = null;
-            let currentFileName = null;
-            let currentFileUrl = null;
-            
-            // ========== HÀM HIỂN THỊ LOADING ==========
-            function showLoading() {
-                const overlay = document.getElementById('loadingOverlay');
-                if (overlay) {
-                    overlay.style.display = 'flex';
-                }
-                
-                const createBtn = document.getElementById('createBtn');
-                if (createBtn) {
-                    createBtn.disabled = true;
-                    createBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> ĐANG XỬ LÝ...';
-                }
-            }
-            
-            // ========== HÀM ẨN LOADING ==========
-            function hideLoading() {
-                const overlay = document.getElementById('loadingOverlay');
-                if (overlay) {
-                    overlay.style.display = 'none';
-                }
-                
-                const createBtn = document.getElementById('createBtn');
-                if (createBtn) {
-                    createBtn.disabled = false;
-                    createBtn.innerHTML = '<i class="bi bi-file-earmark-plus me-2"></i>TẠO HỢP ĐỒNG';
-                }
-            }
-            
-            // ========== HÀM HIỂN THỊ THÔNG BÁO TOAST ==========
-            function showToast(message, type = 'success') {
-                // Xóa toast cũ nếu có
-                const oldToasts = document.querySelectorAll('.toast-container');
-                oldToasts.forEach(toast => toast.remove());
-                
-                const toast = document.createElement('div');
-                toast.className = 'toast-container position-fixed top-0 end-0 p-3';
-                toast.style.zIndex = '9999';
-                
-                const bgColor = type === 'success' ? 'bg-success' : 
-                               type === 'warning' ? 'bg-warning' : 'bg-danger';
-                const icon = type === 'success' ? 'bi-check-circle-fill' : 
-                            type === 'warning' ? 'bi-exclamation-triangle-fill' : 'bi-exclamation-triangle-fill';
-                const title = type === 'success' ? 'Thành công' : 
-                             type === 'warning' ? 'Cảnh báo' : 'Lỗi';
-                
-                toast.innerHTML = `
-                    <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
-                        <div class="toast-header ${bgColor} text-white">
-                            <i class="bi ${icon} me-2"></i>
-                            <strong class="me-auto">${title}</strong>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
-                        </div>
-                        <div class="toast-body">
-                            ${message}
-                        </div>
-                    </div>
-                `;
-                
-                document.body.appendChild(toast);
-                
-                // Thêm sự kiện đóng toast
-                const closeBtn = toast.querySelector('.btn-close');
-                if (closeBtn) {
-                    closeBtn.addEventListener('click', function() {
-                        toast.remove();
-                    });
-                }
-                
-                // Tự động xóa toast sau 5 giây
-                setTimeout(() => {
-                    if (toast.parentNode) {
-                        toast.remove();
-                    }
-                }, 5000);
-            }
-            
-            // ========== HÀM HIỂN THỊ KẾT QUẢ ==========
-            function showResult(data) {
-                try {
-                    const resultSection = document.getElementById('resultSection');
-                    const successMessage = document.getElementById('successMessage');
-                    const successDetail = document.getElementById('successDetail');
-                    const fileName = document.getElementById('fileName');
-                    const filePath = document.getElementById('filePath');
-                    const fileSize = document.getElementById('fileSize');
-                    const downloadBtn = document.getElementById('downloadBtn');
-                    
-                    // Kiểm tra các phần tử tồn tại
-                    if (!resultSection || !successMessage || !successDetail || !fileName || !filePath || !fileSize) {
-                        console.error('Không tìm thấy các phần tử DOM cần thiết');
-                        showToast(data.message || '✅ Tạo hợp đồng thành công!', 'success');
-                        return;
-                    }
-                    
-                    // Cập nhật thông báo
-                    successMessage.textContent = data.message || '✅ Tạo hợp đồng thành công!';
-                    
-                    if (data.word_opened) {
-                        successDetail.textContent = data.open_message || 'File DOCX đã được tạo và mở bằng Microsoft Word.';
-                    } else {
-                        successDetail.textContent = data.open_message || 'File DOCX đã được tạo nhưng không thể mở tự động. Vui lòng mở thủ công từ thư mục data.';
-                    }
-                    
-                    // Cập nhật thông tin file
-                    fileName.textContent = data.filename || 'Không xác định';
-                    filePath.textContent = data.file_path || 'Không xác định';
-                    fileSize.textContent = data.file_size || 'Không xác định';
-                    
-                    // Lưu thông tin file
-                    currentFilePath = data.file_path;
-                    currentFileName = data.filename;
-                    currentFileUrl = data.file_url;
-                    
-                    // Hiển thị nút download nếu có URL
-                    if (downloadBtn && data.file_url) {
-                        downloadBtn.href = data.file_url;
-                        downloadBtn.download = data.filename || 'hop_dong.docx';
-                        downloadBtn.style.display = 'inline-block';
-                    }
-                    
-                    // Hiển thị section kết quả
-                    resultSection.style.display = 'block';
-                    setTimeout(() => {
-                        resultSection.scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'center' 
-                        });
-                    }, 300);
-                    
-                } catch (error) {
-                    console.error('Lỗi trong hàm showResult:', error);
-                    showToast('✅ Tạo hợp đồng thành công! File đã được mở bằng Microsoft Word.', 'success');
-                }
-            }
-            
-            // ========== HÀM ẨN KẾT QUẢ ==========
-            function hideResult() {
-                const resultSection = document.getElementById('resultSection');
-                if (resultSection) {
-                    resultSection.style.display = 'none';
-                }
-                
-                // Reset biến
-                currentFilePath = null;
-                currentFileName = null;
-                currentFileUrl = null;
-                
-                // Ẩn nút download
-                const downloadBtn = document.getElementById('downloadBtn');
-                if (downloadBtn) {
-                    downloadBtn.style.display = 'none';
-                }
-            }
-            
-            // ========== HÀM ĐẶT LẠI FORM ==========
-            function resetForm() {
-                const contractForm = document.getElementById('contractForm');
-                if (contractForm) {
-                    contractForm.reset();
-                }
-                
-                // Đặt ngày hiện tại
-                const today = new Date().toISOString().split('T')[0];
-                const dateFields = ['ngay_cap', 'ngay_cam'];
-                dateFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    if (field) {
-                        field.value = today;
-                    }
-                });
-                
-                // Đặt giờ phút hiện tại
-                const now = new Date();
-                const gioInput = document.getElementById('gio');
-                const phutInput = document.getElementById('phut');
-                
-                if (gioInput) gioInput.value = now.getHours().toString().padStart(2, '0');
-                if (phutInput) phutInput.value = now.getMinutes().toString().padStart(2, '0');
-                
-                // Reset số tiền thành chữ
-                const bangChuInput = document.getElementById('bang_chu');
-                if (bangChuInput) {
-                    bangChuInput.value = '';
-                }
-                
-                // Focus vào trường đầu tiên
-                setTimeout(() => {
-                    const hoTenInput = document.getElementById('ho_ten');
-                    if (hoTenInput) {
-                        hoTenInput.focus();
-                    }
-                }, 100);
-            }
-            
-            // ========== HÀM CHUYỂN SỐ THÀNH CHỮ ==========
-            function numberToWords(num) {
-    if (num === 0) return 'không đồng';
-    
-    const ones = ['', 'một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín'];
-    const tens = ['', '', 'hai mươi', 'ba mươi', 'bốn mươi', 'năm mươi', 'sáu mươi', 'bảy mươi', 'tám mươi', 'chín mươi'];
-    
-    function convertLessThanOneThousand(n, isFirst = true) {
-        if (n === 0) return '';
-        
-        let result = '';
-        
-        // Hàng trăm
-        if (n >= 100) {
-            const hundreds = Math.floor(n / 100);
-            result += ones[hundreds] + ' trăm ';
-            n %= 100;
-            
-            // Thêm "lẻ" nếu hàng chục = 0 và hàng đơn vị > 0
-            if (n > 0 && n < 10) {
-                result += 'lẻ ';
-            }
-        }
-        
-        // Hàng chục và đơn vị
-        if (n >= 10) {
-            const tensDigit = Math.floor(n / 10);
-            const onesDigit = n % 10;
-            
-            if (tensDigit === 1) {
-                // Số từ 10-19
-                result += 'mười ';
-                if (onesDigit > 0) {
-                    if (onesDigit === 5) {
-                        result += 'lăm ';
-                    } else {
-                        result += ones[onesDigit] + ' ';
-                    }
-                }
-            } else {
-                // Số từ 20-99
-                result += tens[tensDigit] + ' ';
-                if (onesDigit > 0) {
-                    if (onesDigit === 5) {
-                        result += 'lăm ';
-                    } else if (onesDigit === 1) {
-                        result += 'mốt ';
-                    } else {
-                        result += ones[onesDigit] + ' ';
-                    }
-                }
-            }
-        } else if (n > 0) {
-            // Số từ 1-9 (chỉ hàng đơn vị)
-            result += ones[n] + ' ';
-        }
-        
-        return result.trim();
-    }
-    
-    let result = '';
-    
-    // Tách số thành các phần: tỷ, triệu, nghìn, trăm
-    const billion = Math.floor(num / 1000000000);
-    const million = Math.floor((num % 1000000000) / 1000000);
-    const thousand = Math.floor((num % 1000000) / 1000);
-    const remainder = num % 1000;
-    
-    // Hàng tỷ
-    if (billion > 0) {
-        result += convertLessThanOneThousand(billion, true) + ' tỷ ';
-    }
-    
-    // Hàng triệu
-    if (million > 0) {
-        result += convertLessThanOneThousand(million, false) + ' triệu ';
-    } else if (billion > 0 && (thousand > 0 || remainder > 0)) {
-        // Nếu có tỷ nhưng không có triệu, cần thêm xử lý
-    }
-    
-    // Hàng nghìn
-    if (thousand > 0) {
-        result += convertLessThanOneThousand(thousand, false) + ' nghìn ';
-    } else if ((billion > 0 || million > 0) && remainder > 0 && remainder < 100) {
-        // Thêm "không trăm" nếu cần
-    }
-    
-    // Hàng trăm, chục, đơn vị
-    if (remainder > 0) {
-        result += convertLessThanOneThousand(remainder, false);
-    }
-    
-    // Chuẩn hóa kết quả
-    result = result.trim().replace(/\s+/g, ' ');
-    
-    return result + ' đồng';
-}
-            
-            // ========== HÀM VALIDATE FORM ==========
-            function validateForm() {
-                const requiredFields = [
-                    'ho_ten', 'nam_sinh', 'so_dt', 'cccd_so', 
-                    'ngay_cap', 'noi_cap', 'noi_dktt', 
-                    'ten_tai_san', 'so_tien', 'gio', 'phut', 'ngay_cam'
-                ];
-                
-                let isValid = true;
-                let firstInvalidField = null;
-                
-                // Xóa tất cả class invalid cũ
-                requiredFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    if (field) {
-                        field.classList.remove('is-invalid');
-                    }
-                });
-                
-                // Kiểm tra từng trường bắt buộc
-                requiredFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    if (field && !field.value.trim()) {
-                        isValid = false;
-                        if (!firstInvalidField) {
-                            firstInvalidField = field;
-                        }
-                        field.classList.add('is-invalid');
-                    }
-                });
-                
-                // Kiểm tra giờ, phút hợp lệ
-                const gioInput = document.getElementById('gio');
-                const phutInput = document.getElementById('phut');
-                
-                if (gioInput && gioInput.value) {
-                    const gioNum = parseInt(gioInput.value);
-                    if (gioNum < 0 || gioNum > 23 || isNaN(gioNum)) {
-                        gioInput.classList.add('is-invalid');
-                        isValid = false;
-                        if (!firstInvalidField) firstInvalidField = gioInput;
-                    }
-                }
-                
-                if (phutInput && phutInput.value) {
-                    const phutNum = parseInt(phutInput.value);
-                    if (phutNum < 0 || phutNum > 59 || isNaN(phutNum)) {
-                        phutInput.classList.add('is-invalid');
-                        isValid = false;
-                        if (!firstInvalidField) firstInvalidField = phutInput;
-                    }
-                }
-                
-                // Kiểm tra số tiền hợp lệ
-                const soTienInput = document.getElementById('so_tien');
-                if (soTienInput && soTienInput.value) {
-                    const rawValue = soTienInput.value.replace(/\./g, '').replace(',', '');
-                    const soTienNum = parseInt(rawValue);
-                    if (isNaN(soTienNum) || soTienNum <= 0) {
-                        soTienInput.classList.add('is-invalid');
-                        isValid = false;
-                        if (!firstInvalidField) firstInvalidField = soTienInput;
-                    }
-                }
-                
-                return { isValid, firstInvalidField };
-            }
-            
-            // ========== XỬ LÝ SỐ TIỀN ==========
-            const soTienInput = document.getElementById('so_tien');
-            if (soTienInput) {
-                soTienInput.addEventListener('input', function() {
-                    // Lấy giá trị và loại bỏ các ký tự không phải số
-                    let value = this.value.replace(/[^0-9]/g, '');
-                    
-                    // Chuyển đổi sang số
-                    const soTien = parseInt(value) || 0;
-                    
-                    // Format với dấu chấm ngăn cách hàng nghìn
-                    if (soTien > 0) {
-                        this.value = soTien.toLocaleString('vi-VN');
-                    } else {
-                        this.value = '';
-                    }
-                    
-                    // Chuyển số thành chữ
-                    const bangChu = numberToWords(soTien);
-                    const bangChuInput = document.getElementById('bang_chu');
-                    if (bangChuInput) {
-                        bangChuInput.value = bangChu;
-                    }
-                });
-            }
-            
-            // ========== ĐẶT GIÁ TRỊ MẶC ĐỊNH ==========
-            function setDefaultValues() {
-                // Đặt ngày hiện tại
-                const today = new Date().toISOString().split('T')[0];
-                const dateFields = ['ngay_cap', 'ngay_cam'];
-                
-                dateFields.forEach(fieldId => {
-                    const field = document.getElementById(fieldId);
-                    if (field) {
-                        field.value = today;
-                    }
-                });
-                
-                // Đặt giờ phút hiện tại
-                const now = new Date();
-                const gioInput = document.getElementById('gio');
-                const phutInput = document.getElementById('phut');
-                
-                if (gioInput) {
-                    gioInput.value = now.getHours().toString().padStart(2, '0');
-                }
-                
-                if (phutInput) {
-                    phutInput.value = now.getMinutes().toString().padStart(2, '0');
-                }
-                
-                // Focus vào trường đầu tiên
-                setTimeout(() => {
-                    const hoTenInput = document.getElementById('ho_ten');
-                    if (hoTenInput) {
-                        hoTenInput.focus();
-                    }
-                }, 100);
-            }
-            
-            // ========== XỬ LÝ NÚT TẠO HỢP ĐỒNG ==========
-            const createBtn = document.getElementById('createBtn');
-            if (createBtn) {
-                createBtn.addEventListener('click', function() {
-                    // Validate form
-                    const validation = validateForm();
-                    
-                    if (!validation.isValid) {
-                        showToast('Vui lòng điền đầy đủ và đúng các thông tin bắt buộc!', 'warning');
-                        
-                        // Focus vào trường lỗi đầu tiên
-                        if (validation.firstInvalidField) {
-                            validation.firstInvalidField.focus();
-                        }
-                        
-                        return;
-                    }
-                    
-                    // Chuẩn bị dữ liệu
-                    const formData = new FormData();
-                    const formFields = [
-                        'ho_ten', 'nam_sinh', 'so_dt', 'cccd_so', 'ngay_cap', 
-                        'noi_cap', 'noi_dktt', 'ten_tai_san', 'so_tien', 
-                        'bang_chu', 'gio', 'phut', 'ngay_cam'
-                    ];
-                    
-                    formFields.forEach(field => {
-                        const element = document.getElementById(field);
-                        if (element) {
-                            // Format số tiền: bỏ dấu phẩy trước khi gửi
-                            if (field === 'so_tien') {
-                                const rawValue = element.value.replace(/\./g, '').replace(',', '');
-                                formData.append(field, rawValue);
-                            } else {
-                                formData.append(field, element.value);
-                            }
-                        }
-                    });
-                    
-                    // Gửi request đến create_contract.php
-                    showLoading();
-                    
-                    fetch('./create_contract.php', {
-                        method: 'POST',
-                        body: formData
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            return response.text().then(text => {
-                                throw new Error(`HTTP ${response.status}: ${text}`);
-                            });
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
-                        hideLoading();
-                        
-                        console.log('Response data:', data);
-                        
-                        if (data.success) {
-                            showResult(data);
-                            showToast(data.message, 'success');
-                        } else {
-                            showToast(data.message || 'Có lỗi xảy ra khi tạo hợp đồng', 'error');
-                            console.error('Server error:', data);
-                        }
-                    })
-                    .catch(error => {
-                        hideLoading();
-                        console.error('Fetch error:', error);
-                        showToast('Lỗi kết nối: ' + error.message, 'error');
-                    });
-                });
-            }
-            
-            // ========== XỬ LÝ NÚT MỞ LẠI BẰNG WORD ==========
-            const openWordBtn = document.getElementById('openWordBtn');
-            if (openWordBtn) {
-                openWordBtn.addEventListener('click', function() {
-                    if (currentFilePath) {
-                        // Hiển thị loading
-                        showLoading();
-                        
-                        fetch('./open_word.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                file_path: currentFilePath
-                            })
-                        })
-                        .then(response => {
-                            if (!response.ok) {
-                                return response.text().then(text => {
-                                    throw new Error(`HTTP ${response.status}: ${text}`);
-                                });
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            hideLoading();
-                            
-                            if (data.success) {
-                                showToast('Đang mở file bằng Microsoft Word...', 'success');
-                            } else {
-                                showToast(data.message || 'Không thể mở file', 'warning');
-                            }
-                        })
-                        .catch(error => {
-                            hideLoading();
-                            console.error('Error opening Word:', error);
-                            showToast('Lỗi: ' + error.message, 'error');
-                        });
-                    } else {
-                        showToast('Không tìm thấy file để mở', 'warning');
-                    }
-                });
-            }
-            
-            // ========== XỬ LÝ NÚT TẠO HỢP ĐỒNG KHÁC ==========
-            const createAnotherBtn = document.getElementById('createAnotherBtn');
-            if (createAnotherBtn) {
-                createAnotherBtn.addEventListener('click', function() {
-                    hideResult();
-                    resetForm();
-                    showToast('Đã sẵn sàng tạo hợp đồng mới', 'info');
-                });
-            }
-            
-            // ========== KHỞI TẠO ==========
-            // Đặt giá trị mặc định khi trang load
-            setDefaultValues();
-            
-            // Thêm sự kiện cho các trường giờ phút để validate realtime
-            const gioInput = document.getElementById('gio');
-            const phutInput = document.getElementById('phut');
-            
-            if (gioInput) {
-                gioInput.addEventListener('blur', function() {
-                    const value = parseInt(this.value);
-                    if (value < 0 || value > 23 || isNaN(value)) {
-                        this.classList.add('is-invalid');
-                    } else {
-                        this.classList.remove('is-invalid');
-                    }
-                });
-            }
-            
-            if (phutInput) {
-                phutInput.addEventListener('blur', function() {
-                    const value = parseInt(this.value);
-                    if (value < 0 || value > 59 || isNaN(value)) {
-                        this.classList.add('is-invalid');
-                    } else {
-                        this.classList.remove('is-invalid');
-                    }
-                });
-            }
-        });
-    </script>
+   <script src="./js/main.js"></script>
 </body>
 </html>

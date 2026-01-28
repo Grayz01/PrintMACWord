@@ -4,15 +4,28 @@
 - PHP 7.4 hoặc cao hơn
 - XAMPP trên macOS
 - Microsoft Word cho macOS
-- Composer
+- Phần mềm Composer
 
-## Cài đặt
+Mỏ localhost/debug.php để kiểm tra
 
-1. **Clone/Copy dự án vào thư mục htdocs của XAMPP**
+Khi đáp ứng đủ các yêu cầu của hệ thống
+Clone dự án
+Vào terminal dự án
+chạy lệnh
 
-# Cấp quyền cho Terminal/Apache điều khiển Word
-# Vào System Preferences > Security & Privacy > Privacy > Automation
-# Thêm Terminal hoặc httpd vào danh sách được phép điều khiển Microsoft Word
+composer require phpoffice/phpword
 
-# Cài đặt Microsoft Word for Mac
-# Đảm bảo máy in hỗ trợ in 2 mặt
+cấp quyền cho thư mục
+chmod 777 .
+chmod 777 data
+chmod 777 template
+
+mysql
+-- Tạo database nếu chưa tồn tại
+CREATE DATABASE IF NOT EXISTS Contract;
+USE Contract;
+
+-- Tạo table HopDong
+CREATE TABLE HopDong(
+    idHopDong INT AUTO_INCREMENT PRIMARY KEY
+);

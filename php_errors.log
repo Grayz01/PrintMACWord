@@ -225,3 +225,27 @@
 [23-Jan-2026 09:25:54 Europe/Berlin] Word opened successfully
 [23-Jan-2026 09:25:54 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Phan_Văn_COD_20260123092554.docx","file_url":"data\/HopDong_Phan_Văn_COD_20260123092554.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Phan_Văn_COD_20260123092554.docx","file_size":"21.26 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
 [23-Jan-2026 09:25:54 Europe/Berlin] === CREATE_CONTRACT END ===
+[23-Jan-2026 09:30:12 Europe/Berlin] === CREATE_CONTRACT START ===
+[23-Jan-2026 09:30:12 Europe/Berlin] PHPWord loaded
+[23-Jan-2026 09:30:12 Europe/Berlin] Data - ho_ten: Phan Văn COD, so_tien: 88000000
+[23-Jan-2026 09:30:12 Europe/Berlin] Creating TemplateProcessor...
+[23-Jan-2026 09:30:12 Europe/Berlin] TemplateProcessor created
+[23-Jan-2026 09:30:12 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_Phan_Văn_COD_20260123093012.docx
+[23-Jan-2026 09:30:12 Europe/Berlin] File created: 21861 bytes
+[23-Jan-2026 09:30:12 Europe/Berlin] Opening file with Microsoft Word...
+[23-Jan-2026 09:30:12 Europe/Berlin] Word opened successfully
+[23-Jan-2026 09:30:12 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","filename":"HopDong_Phan_Văn_COD_20260123093012.docx","file_url":"data\/HopDong_Phan_Văn_COD_20260123093012.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_Phan_Văn_COD_20260123093012.docx","file_size":"21.35 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[23-Jan-2026 09:30:12 Europe/Berlin] === CREATE_CONTRACT END ===
+[28-Jan-2026 07:01:51 Europe/Berlin] === CREATE_CONTRACT START ===
+[28-Jan-2026 07:01:51 Europe/Berlin] PHPWord loaded
+[28-Jan-2026 07:01:51 Europe/Berlin] Auto Generated maHopDong: HD001
+[28-Jan-2026 07:01:51 Europe/Berlin] Data - maHopDong: HD001, ho_ten: Lưu Văn ABC, so_tien: 9999990
+[28-Jan-2026 07:01:51 Europe/Berlin] Generated ID: 1, maHopDong: HD001
+[28-Jan-2026 07:01:51 Europe/Berlin] Creating TemplateProcessor...
+[28-Jan-2026 07:01:51 Europe/Berlin] TemplateProcessor created
+[28-Jan-2026 07:01:51 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_HD001_Lưu_Văn_ABC_20260128070151.docx
+[28-Jan-2026 07:01:51 Europe/Berlin] File created: 21935 bytes
+[28-Jan-2026 07:01:51 Europe/Berlin] Opening file with Microsoft Word...
+[28-Jan-2026 07:01:51 Europe/Berlin] Word opened successfully
+[28-Jan-2026 07:01:51 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","idHopDong":"1","maHopDong":"HD001","auto_generated":false,"filename":"HopDong_HD001_Lưu_Văn_ABC_20260128070151.docx","file_url":"data\/HopDong_HD001_Lưu_Văn_ABC_20260128070151.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_HD001_Lưu_Văn_ABC_20260128070151.docx","file_size":"21.42 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[28-Jan-2026 07:01:51 Europe/Berlin] === CREATE_CONTRACT END ===
