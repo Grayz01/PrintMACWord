@@ -1,4 +1,3 @@
-
 <?php
 // get_auto_maHopDong.php - API để lấy mã hợp đồng tự động
 error_reporting(E_ALL);
@@ -20,7 +19,7 @@ try {
     $stmt->execute();
     $latestContract = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    $autoMaHopDong = 'HD001'; // Mặc định
+    $autoMaHopDong = 'HD001'; // Mặc định - LUÔN CÓ 3 CHỮ SỐ
     
     if ($latestContract && isset($latestContract['maHopDong'])) {
         $latestCode = $latestContract['maHopDong'];
@@ -30,7 +29,8 @@ try {
             $latestNumber = intval($matches[1]);
             $newNumber = $latestNumber + 1;
             
-            // Format về dạng HD001, HD010, HD100
+            // Format về dạng HD001, HD010, HD100 - LUÔN CÓ 3 CHỮ SỐ
+            // 1 -> 001, 9 -> 009, 10 -> 010, 99 -> 099, 100 -> 100
             $autoMaHopDong = 'HD' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
         } else {
             // Nếu mã không đúng định dạng, vẫn tăng số
@@ -49,9 +49,10 @@ try {
         if (preg_match('/HD(\d+)/', $autoMaHopDong, $matches)) {
             $latestNumber = intval($matches[1]);
             $newNumber = $latestNumber + 1;
+            // LUÔN GIỮ 3 CHỮ SỐ
             $autoMaHopDong = 'HD' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
         } else {
-            $autoMaHopDong = $autoMaHopDong . '_1';
+            $autoMaHopDong = 'HD' . str_pad(1, 3, '0', STR_PAD_LEFT);
         }
         
         $stmt->execute([$autoMaHopDong]);

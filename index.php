@@ -263,11 +263,24 @@
         }
         
         .ma-hopdong-value {
-            font-size: 1.4rem;
-            letter-spacing: 1px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
             background-color: rgba(255, 255, 255, 0.2);
-            padding: 5px 15px;
+            padding: 8px 20px;
             border-radius: 5px;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        /* Hiệu ứng cho mã hợp đồng */
+        .ma-hopdong-value.flashing {
+            animation: flash 1s ease-in-out 3;
+        }
+        
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
         
         @media (max-width: 768px) {
@@ -299,11 +312,18 @@
             .ma-hopdong-badge {
                 font-size: 1rem;
                 padding: 10px 15px;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .ma-hopdong-label {
+                margin-right: 0;
+                margin-bottom: 5px;
             }
             
             .ma-hopdong-value {
-                font-size: 1.1rem;
-                padding: 3px 10px;
+                font-size: 1.3rem;
+                padding: 5px 15px;
             }
         }
     </style>

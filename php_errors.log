@@ -249,3 +249,16 @@
 [28-Jan-2026 07:01:51 Europe/Berlin] Word opened successfully
 [28-Jan-2026 07:01:51 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","idHopDong":"1","maHopDong":"HD001","auto_generated":false,"filename":"HopDong_HD001_Lưu_Văn_ABC_20260128070151.docx","file_url":"data\/HopDong_HD001_Lưu_Văn_ABC_20260128070151.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_HD001_Lưu_Văn_ABC_20260128070151.docx","file_size":"21.42 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
 [28-Jan-2026 07:01:51 Europe/Berlin] === CREATE_CONTRACT END ===
+[28-Jan-2026 07:34:50 Europe/Berlin] === CREATE_CONTRACT START ===
+[28-Jan-2026 07:34:50 Europe/Berlin] PHPWord loaded
+[28-Jan-2026 07:34:50 Europe/Berlin] Auto Generated maHopDong: HD002
+[28-Jan-2026 07:34:50 Europe/Berlin] Data - maHopDong: HD002, ho_ten: Trần Văn Long, so_tien: 12345467
+[28-Jan-2026 07:34:50 Europe/Berlin] Generated ID: 2, maHopDong: HD002
+[28-Jan-2026 07:34:50 Europe/Berlin] Creating TemplateProcessor...
+[28-Jan-2026 07:34:50 Europe/Berlin] TemplateProcessor created
+[28-Jan-2026 07:34:50 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_HD002_Trần_Văn_Long_20260128073450.docx
+[28-Jan-2026 07:34:50 Europe/Berlin] File created: 21948 bytes
+[28-Jan-2026 07:34:50 Europe/Berlin] Opening file with Microsoft Word...
+[28-Jan-2026 07:34:51 Europe/Berlin] Word opened successfully
+[28-Jan-2026 07:34:51 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","idHopDong":"2","maHopDong":"HD002","auto_generated":false,"filename":"HopDong_HD002_Trần_Văn_Long_20260128073450.docx","file_url":"data\/HopDong_HD002_Trần_Văn_Long_20260128073450.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_HD002_Trần_Văn_Long_20260128073450.docx","file_size":"21.43 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[28-Jan-2026 07:34:51 Europe/Berlin] === CREATE_CONTRACT END ===

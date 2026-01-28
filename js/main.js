@@ -28,11 +28,17 @@ document.addEventListener('DOMContentLoaded', function() {
                         })
                         .then(data => {
                             if (data.success && data.maHopDong) {
-                                // Cập nhật hiển thị
+                                // Cập nhật hiển thị với font monospace
                                 displaySpan.textContent = data.maHopDong;
                                 
                                 // Cập nhật input hidden
                                 hiddenInput.value = data.maHopDong;
+                                
+                                // Thêm hiệu ứng flash khi tải xong
+                                displaySpan.classList.add('flashing');
+                                setTimeout(() => {
+                                    displaySpan.classList.remove('flashing');
+                                }, 3000);
                                 
                                 // Hiển thị thông báo
                                 if (data.auto_generated) {
@@ -103,6 +109,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (displaySpan && hiddenInput) {
                     displaySpan.textContent = maHopDong;
                     hiddenInput.value = maHopDong;
+                    
+                    // Thêm hiệu ứng flash khi cập nhật mã mới
+                    displaySpan.classList.add('flashing');
+                    setTimeout(() => {
+                        displaySpan.classList.remove('flashing');
+                    }, 2000);
                 }
             }
             

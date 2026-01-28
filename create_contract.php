@@ -1,6 +1,4 @@
-
 <?php
-// create_contract.php - Phiên bản sửa theo cấu trúc process.php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -47,7 +45,8 @@ try {
             $latestNumber = intval($matches[1]);
             $newNumber = $latestNumber + 1;
             
-            // Format về dạng HD001, HD010, HD100
+            // Format về dạng HD001, HD010, HD100 - LUÔN CÓ 3 CHỮ SỐ
+            // 1 -> 001, 9 -> 009, 10 -> 010, 99 -> 099, 100 -> 100
             $autoMaHopDong = 'HD' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
         } else {
             // Nếu mã không đúng định dạng, vẫn tăng số
@@ -97,9 +96,10 @@ try {
             if (preg_match('/HD(\d+)/', $newMaHopDong, $matches)) {
                 $latestNumber = intval($matches[1]);
                 $newNumber = $latestNumber + 1;
+                // LUÔN GIỮ 3 CHỮ SỐ
                 $newMaHopDong = 'HD' . str_pad($newNumber, 3, '0', STR_PAD_LEFT);
             } else {
-                $newMaHopDong = $newMaHopDong . '_1';
+                $newMaHopDong = 'HD' . str_pad(1, 3, '0', STR_PAD_LEFT);
             }
             
             $stmt->execute([$newMaHopDong]);
@@ -163,6 +163,12 @@ try {
     // Format số tiền
     $so_tien_num = intval(str_replace(['.', ','], '', $so_tien));
     
+    // Trích xuất số từ mã hợp đồng để format đúng cho Word
+    $maHopDongNumber = '';
+    if (preg_match('/HD(\d+)/', $maHopDong, $matches)) {
+        $maHopDongNumber = $matches[1]; // Lấy phần số (001, 010, 100)
+    }
+    
     // Điền dữ liệu
     $templateProcessor->setValue('ho_ten', $ho_ten);
     $templateProcessor->setValue('nam_sinh', $nam_sinh);
@@ -179,7 +185,8 @@ try {
     $templateProcessor->setValue('ngay_cam', formatDate($ngay_cam));
     $templateProcessor->setValue('ngay_cam_full', formatDateFull($ngay_cam));
     $templateProcessor->setValue('idHopDong', $idHopDong);
-    $templateProcessor->setValue('maHopDong', $maHopDong);
+    $templateProcessor->setValue('maHopDong', $maHopDong); // HD001, HD009, HD010, HD099, HD100
+    $templateProcessor->setValue('maHopDongNumber', $maHopDongNumber); // 001, 009, 010, 099, 100
     
     // Tạo tên file
     $timestamp = date('YmdHis');
