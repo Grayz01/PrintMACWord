@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
             console.log('Hệ thống hợp đồng cầm cố đã sẵn sàng!');
             
@@ -694,7 +693,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (createAnotherBtn) {
                 createAnotherBtn.addEventListener('click', function() {
                     resetForm();
-                    showToast('Đã sẵn sàng tạo hợp đồng mới', 'info');
+                    // Đã xoá dòng showToast này
                 });
             }
             
