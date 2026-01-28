@@ -26,6 +26,10 @@ CREATE DATABASE IF NOT EXISTS Contract;
 USE Contract;
 
 -- Tạo table HopDong
-CREATE TABLE HopDong(
-    idHopDong INT AUTO_INCREMENT PRIMARY KEY
+CREATE TABLE HopDong (
+    idHopDong INT(11) NOT NULL AUTO_INCREMENT,
+    maHopDong VARCHAR(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (idHopDong),
+    UNIQUE KEY (maHopDong)
 );
