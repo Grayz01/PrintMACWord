@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
             console.log('Hệ thống hợp đồng cầm cố đã sẵn sàng!');
             
@@ -10,15 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // ========== HÀM LẤY MÃ HỢP ĐỒNG TỰ ĐỘNG KHI TRANG LOAD ==========
             function loadAutoMaHopDong() {
-                const displayDiv = document.getElementById('autoMaHopDongDisplay');
-                const textSpan = document.getElementById('autoMaHopDongText');
-                const loadingDiv = document.getElementById('maHopDongLoading');
+                const displaySpan = document.getElementById('autoMaHopDongText');
                 const hiddenInput = document.getElementById('maHopDong');
                 
-                if (displayDiv && textSpan && loadingDiv && hiddenInput) {
+                if (displaySpan && hiddenInput) {
                     // Hiển thị loading
-                    displayDiv.style.display = 'none';
-                    loadingDiv.style.display = 'block';
+                    displaySpan.textContent = 'Đang tải...';
                     
                     // Gọi API để lấy mã hợp đồng tự động
                     fetch('./get_auto_maHopDong.php')
@@ -29,12 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             return response.json();
                         })
                         .then(data => {
-                            loadingDiv.style.display = 'none';
-                            
                             if (data.success && data.maHopDong) {
                                 // Cập nhật hiển thị
-                                textSpan.textContent = data.maHopDong;
-                                displayDiv.style.display = 'block';
+                                displaySpan.textContent = data.maHopDong;
                                 
                                 // Cập nhật input hidden
                                 hiddenInput.value = data.maHopDong;
@@ -45,20 +40,17 @@ document.addEventListener('DOMContentLoaded', function() {
                                 }
                             } else {
                                 // Fallback: Tạo mã mặc định
-                                textSpan.textContent = 'HD001';
+                                displaySpan.textContent = 'HD001';
                                 hiddenInput.value = 'HD001';
-                                displayDiv.style.display = 'block';
                                 console.warn('Không thể lấy mã tự động, sử dụng mã mặc định HD001');
                             }
                         })
                         .catch(error => {
                             console.error('Lỗi khi lấy mã hợp đồng tự động:', error);
-                            loadingDiv.style.display = 'none';
                             
                             // Fallback: Tạo mã mặc định
-                            textSpan.textContent = 'HD001';
+                            displaySpan.textContent = 'HD001';
                             hiddenInput.value = 'HD001';
-                            displayDiv.style.display = 'block';
                         });
                 }
             }
@@ -105,36 +97,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // ========== HÀM HIỂN THỊ MÃ HỢP ĐỒNG TỰ ĐỘNG ==========
             function showAutoMaHopDong(maHopDong) {
-                const displayDiv = document.getElementById('autoMaHopDongDisplay');
-                const textSpan = document.getElementById('autoMaHopDongText');
-                const hintSpan = document.getElementById('autoMaHopDongHint');
+                const displaySpan = document.getElementById('autoMaHopDongText');
                 const hiddenInput = document.getElementById('maHopDong');
                 
-                if (displayDiv && textSpan && hintSpan && hiddenInput) {
-                    textSpan.textContent = maHopDong;
+                if (displaySpan && hiddenInput) {
+                    displaySpan.textContent = maHopDong;
                     hiddenInput.value = maHopDong;
-                    displayDiv.style.display = 'block';
-                    hintSpan.style.display = 'block';
-                }
-            }
-            
-            // ========== HÀM ẨN HIỂN THỊ MÃ HỢP ĐỒNG TỰ ĐỘNG ==========
-            function hideAutoMaHopDong() {
-                const displayDiv = document.getElementById('autoMaHopDongDisplay');
-                const hintSpan = document.getElementById('autoMaHopDongHint');
-                
-                if (displayDiv) {
-                    displayDiv.style.display = 'none';
-                }
-                
-                if (hintSpan) {
-                    hintSpan.style.display = 'none';
-                }
-                
-                // Reset input hidden
-                const hiddenInput = document.getElementById('maHopDong');
-                if (hiddenInput) {
-                    hiddenInput.value = '';
                 }
             }
             

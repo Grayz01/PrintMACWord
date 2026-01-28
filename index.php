@@ -243,44 +243,31 @@
             margin-left: 5px;
         }
         
-        .ma-hopdong-input {
-            max-width: 300px;
+        .ma-hopdong-badge {
+            background: linear-gradient(135deg, #27ae60, #219653);
+            color: white;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             text-align: center;
-            letter-spacing: 1px;
-        }
-        
-        .ma-hopdong-input:focus {
-            border-color: #27ae60;
-            box-shadow: 0 0 0 0.25rem rgba(39, 174, 96, 0.25);
-        }
-        
-        .auto-ma-hopdong-display {
-            background-color: #f8f9fa;
-            border: 2px solid #27ae60;
-            color: #2c3e50;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-align: center;
-            padding: 10px 15px;
-            border-radius: 8px;
-            margin-top: 5px;
-            display: none;
-        }
-        
-        .auto-ma-hopdong-hint {
-            color: #27ae60;
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-        
-        .auto-ma-hopdong-section {
-            background-color: #e8f6f0;
-            border: 2px dashed #27ae60;
+            padding: 12px 20px;
             border-radius: 10px;
-            padding: 15px;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ma-hopdong-label {
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        
+        .ma-hopdong-value {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 5px;
         }
         
         @media (max-width: 768px) {
@@ -309,14 +296,14 @@
                 padding: 3px 10px;
             }
             
-            .ma-hopdong-input {
-                max-width: 100%;
+            .ma-hopdong-badge {
                 font-size: 1rem;
+                padding: 10px 15px;
             }
             
-            .auto-ma-hopdong-display {
-                font-size: 1rem;
-                padding: 8px 12px;
+            .ma-hopdong-value {
+                font-size: 1.1rem;
+                padding: 3px 10px;
             }
         }
     </style>
@@ -345,48 +332,16 @@
                 <span class="text-muted ms-2">/HĐCC</span>
             </div>
             
-            <!-- Thông báo -->
-            <div class="alert alert-info alert-custom mb-4">
-                <i class="bi bi-info-circle me-2"></i>
-                <strong>Lưu ý:</strong> Hệ thống sẽ tạo file DOCX và mở bằng Microsoft Word để in. 
-                Đảm bảo Microsoft Word đã được cài đặt trên máy Mac.
+            <!-- Hiển thị mã hợp đồng sắp tạo -->
+            <div class="ma-hopdong-badge">
+                <span class="ma-hopdong-label">MÃ HỢP ĐỒNG:</span>
+                <span id="autoMaHopDongText" class="ma-hopdong-value">Đang tải...</span>
             </div>
+            
+            <!-- Input ẩn để lưu mã hợp đồng -->
+            <input type="hidden" name="maHopDong" id="maHopDong" value="">
 
             <form id="contractForm">
-                <!-- Thông tin mã hợp đồng TỰ ĐỘNG -->
-                <div class="auto-ma-hopdong-section">
-                    <h5 class="section-title">
-                        <i class="bi bi-card-checklist me-2"></i>THÔNG TIN MÃ HỢP ĐỒNG (TỰ ĐỘNG)
-                    </h5>
-                    
-                    <div class="row mb-3">
-                        <label class="col-sm-3 col-form-label">MÃ HỢP ĐỒNG</label>
-                        <div class="col-sm-9">
-                            <!-- Hiển thị mã hợp đồng tự động (readonly) -->
-                            <div class="form-control auto-ma-hopdong-display" 
-                                 id="autoMaHopDongDisplay" style="display: block;">
-                                <span id="autoMaHopDongText">Đang tải mã hợp đồng...</span>
-                            </div>
-                            <small class="text-muted auto-ma-hopdong-hint" id="autoMaHopDongHint">
-                                <i class="bi bi-check-circle me-1"></i>
-                                Mã hợp đồng được tạo tự động từ hệ thống
-                            </small>
-                            <div id="maHopDongLoading" style="display: none;">
-                                <div class="spinner-border spinner-border-sm text-primary me-2"></div>
-                                <small class="text-primary">Đang tạo mã hợp đồng...</small>
-                            </div>
-                            
-                            <!-- Input ẩn để lưu mã hợp đồng -->
-                            <input type="hidden" name="maHopDong" id="maHopDong" value="">
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-info alert-custom mb-0">
-                        <i class="bi bi-lightbulb me-2"></i>
-                        <strong>Thông tin:</strong> Mã hợp đồng được tạo tự động dựa trên số thứ tự trong hệ thống (VD: HD001, HD002, HD003...)
-                    </div>
-                </div>
-
                 <!-- Thông tin cá nhân -->
                 <h5 class="section-title">
                     <i class="bi bi-person-badge me-2"></i>THÔNG TIN CÁ NHÂN
@@ -395,25 +350,25 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">HỌ VÀ TÊN</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="ho_ten" id="ho_ten" required placeholder="Nhập họ và tên đầy đủ">
+                        <input type="text" class="form-control" name="ho_ten" id="ho_ten" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">NĂM SINH</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="nam_sinh" id="nam_sinh" required placeholder="VD: 1990">
+                        <input type="text" class="form-control" name="nam_sinh" id="nam_sinh" required>
                     </div>
                     <label class="col-sm-2 col-form-label">SỐ ĐIỆN THOẠI</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="so_dt" id="so_dt" required placeholder="VD: 0901234567">
+                        <input type="text" class="form-control" name="so_dt" id="so_dt" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">SỐ CCCD</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="cccd_so" id="cccd_so" required placeholder="12 số">
+                        <input type="text" class="form-control" name="cccd_so" id="cccd_so" required>
                     </div>
                     <label class="col-sm-2 col-form-label">NGÀY CẤP</label>
                     <div class="col-sm-4">
@@ -424,14 +379,14 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">NƠI CẤP</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="noi_cap" id="noi_cap" required placeholder="VD: Công an thành phố Cần Thơ">
+                        <input type="text" class="form-control" name="noi_cap" id="noi_cap" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">NƠI ĐĂNG KÝ THƯỜNG TRÚ</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="noi_dktt" id="noi_dktt" required placeholder="Nhập địa chỉ đăng ký thường trú">
+                        <input type="text" class="form-control" name="noi_dktt" id="noi_dktt" required>
                     </div>
                 </div>
 
@@ -443,23 +398,21 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">TÊN TÀI SẢN CẦM</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" name="ten_tai_san" id="ten_tai_san" rows="3" required placeholder="Nhập mô tả chi tiết tài sản cầm cố (VD: Xe máy Honda Wave RSX, biển số 65-B1 12345, màu đen, đời 2022)"></textarea>
+                        <textarea class="form-control" name="ten_tai_san" id="ten_tai_san" rows="3" required></textarea>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">SỐ TIỀN CẦM</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="so_tien" id="so_tien" placeholder="VD: 5,000,000" required>
-                        <small class="text-muted">Nhập số tiền (chỉ số)</small>
+                        <input type="text" class="form-control" name="so_tien" id="so_tien" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
-                    <label class="col-sm-2 col-form-label">BẰNG CHỮ:</label>
+                    <label class="col-sm-2 col-form-label">BẰNG CHỮ</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="bang_chu" id="bang_chu" readonly style="background-color: #f8f9fa; font-weight: bold;">
-                        <small class="text-muted">Số tiền bằng chữ tự động chuyển đổi</small>
                     </div>
                 </div>
 
@@ -469,12 +422,12 @@
                 </h5>
 
                 <div class="row mb-3">
-                    <label class="col-sm-2 col-form-label">THỜI ĐIỂM CẦM:</label>
+                    <label class="col-sm-2 col-form-label">THỜI ĐIỂM CẦM</label>
                     <div class="col-sm-2">
-                        <input type="number" class="form-control" name="gio" id="gio" placeholder="GIỜ" min="0" max="23" required>
+                        <input type="number" class="form-control" name="gio" id="gio" min="0" max="23" required>
                     </div>
                     <div class="col-sm-2">
-                        <input type="number" class="form-control" name="phut" id="phut" placeholder="PHÚT" min="0" max="59" required>
+                        <input type="number" class="form-control" name="phut" id="phut" min="0" max="59" required>
                     </div>
                     <label class="col-sm-2 col-form-label">NGÀY CẦM</label>
                     <div class="col-sm-4">
