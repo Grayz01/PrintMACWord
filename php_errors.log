@@ -275,3 +275,42 @@
 [28-Jan-2026 07:42:46 Europe/Berlin] Word opened successfully
 [28-Jan-2026 07:42:46 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","idHopDong":"3","maHopDong":"HD003","auto_generated":false,"filename":"HopDong_HD003_Nguyễn_Văn_XYZ_20260128074246.docx","file_url":"data\/HopDong_HD003_Nguyễn_Văn_XYZ_20260128074246.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_HD003_Nguyễn_Văn_XYZ_20260128074246.docx","file_size":"21.42 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
 [28-Jan-2026 07:42:46 Europe/Berlin] === CREATE_CONTRACT END ===
+[28-Jan-2026 08:35:18 Europe/Berlin] === CREATE_CONTRACT START ===
+[28-Jan-2026 08:35:18 Europe/Berlin] PHPWord loaded
+[28-Jan-2026 08:35:18 Europe/Berlin] Auto Generated maHopDong: HD004
+[28-Jan-2026 08:35:18 Europe/Berlin] Paper Type: A4
+[28-Jan-2026 08:35:18 Europe/Berlin] Data - maHopDong: HD004, ho_ten: Nguyễn Văn A, so_tien: 4567456
+[28-Jan-2026 08:35:18 Europe/Berlin] ERROR in create_contract.php: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'paper_type' in 'field list'
+[28-Jan-2026 08:35:30 Europe/Berlin] === CREATE_CONTRACT START ===
+[28-Jan-2026 08:35:30 Europe/Berlin] PHPWord loaded
+[28-Jan-2026 08:35:30 Europe/Berlin] Auto Generated maHopDong: HD004
+[28-Jan-2026 08:35:30 Europe/Berlin] Paper Type: A4
+[28-Jan-2026 08:35:30 Europe/Berlin] Data - maHopDong: HD004, ho_ten: Nguyễn Văn A, so_tien: 4567456
+[28-Jan-2026 08:35:30 Europe/Berlin] ERROR in create_contract.php: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'paper_type' in 'field list'
+[28-Jan-2026 08:35:38 Europe/Berlin] === CREATE_CONTRACT START ===
+[28-Jan-2026 08:35:38 Europe/Berlin] PHPWord loaded
+[28-Jan-2026 08:35:38 Europe/Berlin] Auto Generated maHopDong: HD004
+[28-Jan-2026 08:35:38 Europe/Berlin] Paper Type: A4
+[28-Jan-2026 08:35:38 Europe/Berlin] Data - maHopDong: HD004, ho_ten: Nguyễn Văn A, so_tien: 4567456
+[28-Jan-2026 08:35:38 Europe/Berlin] ERROR in create_contract.php: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'paper_type' in 'field list'
+[28-Jan-2026 08:36:32 Europe/Berlin] === CREATE_CONTRACT START ===
+[28-Jan-2026 08:36:32 Europe/Berlin] PHPWord loaded
+[28-Jan-2026 08:36:32 Europe/Berlin] Auto Generated maHopDong: HD004
+[28-Jan-2026 08:36:32 Europe/Berlin] Paper Type: A4
+[28-Jan-2026 08:36:32 Europe/Berlin] Data - maHopDong: HD004, ho_ten: Nguyễn Văn A, so_tien: 4567456
+[28-Jan-2026 08:36:32 Europe/Berlin] Generated ID: 4, maHopDong: HD004, Paper Type: A4
+[28-Jan-2026 08:36:32 Europe/Berlin] ERROR in create_contract.php: Không tìm thấy file template
+[28-Jan-2026 08:36:43 Europe/Berlin] === CREATE_CONTRACT START ===
+[28-Jan-2026 08:36:43 Europe/Berlin] PHPWord loaded
+[28-Jan-2026 08:36:43 Europe/Berlin] Auto Generated maHopDong: HD005
+[28-Jan-2026 08:36:43 Europe/Berlin] Paper Type: A5
+[28-Jan-2026 08:36:43 Europe/Berlin] Data - maHopDong: HD004, ho_ten: Nguyễn Văn A, so_tien: 4567456
+[28-Jan-2026 08:36:43 Europe/Berlin] Generated ID: 5, maHopDong: HD005, Paper Type: A5
+[28-Jan-2026 08:36:43 Europe/Berlin] Creating TemplateProcessor...
+[28-Jan-2026 08:36:43 Europe/Berlin] TemplateProcessor created
+[28-Jan-2026 08:36:43 Europe/Berlin] Saving to: /Applications/XAMPP/xamppfiles/htdocs/contract_system_macos/data/HopDong_HD005_A5_Nguyễn_Văn_A_20260128083643.docx
+[28-Jan-2026 08:36:43 Europe/Berlin] File created: 21930 bytes
+[28-Jan-2026 08:36:43 Europe/Berlin] Opening file with Microsoft Word...
+[28-Jan-2026 08:36:44 Europe/Berlin] Word opened successfully
+[28-Jan-2026 08:36:44 Europe/Berlin] Response sent: {"success":true,"message":"✅ Tạo hợp đồng thành công!","idHopDong":"5","maHopDong":"HD005","paper_type":"A5","auto_generated":false,"filename":"HopDong_HD005_A5_Nguyễn_Văn_A_20260128083643.docx","file_url":"data\/HopDong_HD005_A5_Nguyễn_Văn_A_20260128083643.docx","file_path":"\/Applications\/XAMPP\/xamppfiles\/htdocs\/contract_system_macos\/data\/HopDong_HD005_A5_Nguyễn_Văn_A_20260128083643.docx","file_size":"21.42 KB","word_opened":true,"open_message":"File đã được mở bằng Microsoft Word"}
+[28-Jan-2026 08:36:44 Europe/Berlin] === CREATE_CONTRACT END ===

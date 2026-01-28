@@ -33,3 +33,20 @@ CREATE TABLE HopDong (
     PRIMARY KEY (idHopDong),
     UNIQUE KEY (maHopDong)
 );
+
+-- Thêm bảng Settings để lưu cài đặt mặc định
+CREATE TABLE IF NOT EXISTS Settings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    setting_key VARCHAR(50) NOT NULL UNIQUE,
+    setting_value VARCHAR(100) NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Thêm cài đặt mặc định cho loại giấy
+INSERT INTO Settings (setting_key, setting_value) 
+VALUES ('paper_type', 'A4') 
+ON DUPLICATE KEY UPDATE setting_value = VALUES(setting_value);
+
+-- Thêm trường paper_type vào bảng HopDong nếu chưa có
+ALTER TABLE HopDong 
+ADD COLUMN IF NOT EXISTS paper_type VARCHAR(10) DEFAULT 'A4' AFTER maHopDong;

@@ -1,3 +1,4 @@
+
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -28,6 +29,22 @@ try {
     require_once __DIR__ . '/database.php';
     $db = new Database();
     $conn = $db->connect();
+    
+    // ========== LẤY LOẠI GIẤY MẶC ĐỊNH TỪ SETTINGS ==========
+    $paperType = 'A4'; // Mặc định
+    try {
+        $stmt = $conn->prepare("SELECT setting_value FROM Settings WHERE setting_key = 'paper_type'");
+        $stmt->execute();
+        $setting = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($setting && isset($setting['setting_value'])) {
+            $paperType = $setting['setting_value'];
+        }
+    } catch (Exception $e) {
+        error_log('Không thể lấy cài đặt paper_type: ' . $e->getMessage());
+    }
+    
+    // Lấy loại giấy từ POST nếu có (cho từng hợp đồng)
+    $selectedPaperType = $_POST['paper_type'] ?? $paperType;
     
     // ========== LẤY MÃ HỢP ĐỒNG TỰ ĐỘNG ==========
     // 1. Tìm mã hợp đồng gần nhất
@@ -74,6 +91,7 @@ try {
     $ngay_cam = $_POST['ngay_cam'] ?? '';
     
     error_log("Auto Generated maHopDong: $autoMaHopDong");
+    error_log("Paper Type: $selectedPaperType");
     error_log("Data - maHopDong: $maHopDong, ho_ten: $ho_ten, so_tien: $so_tien");
     
     // Validate
@@ -110,17 +128,23 @@ try {
         $maHopDong = $newMaHopDong;
     }
     
-    // Tạo mới bản ghi với mã hợp đồng
-    $stmt = $conn->prepare("INSERT INTO HopDong (maHopDong) VALUES (?)");
-    $stmt->execute([$maHopDong]);
+    // Lưu loại giấy vào bảng HopDong nếu cần
+    $stmt = $conn->prepare("INSERT INTO HopDong (maHopDong, paper_type) VALUES (?, ?)");
+    $stmt->execute([$maHopDong, $selectedPaperType]);
     $idHopDong = $conn->lastInsertId();
     
-    error_log("Generated ID: $idHopDong, maHopDong: $maHopDong");
+    error_log("Generated ID: $idHopDong, maHopDong: $maHopDong, Paper Type: $selectedPaperType");
     
-    // Kiểm tra template
-    $templatePath = __DIR__ . '/templates/contract_template.docx';
+    // Kiểm tra template dựa trên loại giấy
+    $templateFile = ($selectedPaperType === 'A5') ? 'contract_template_A5.docx' : 'contract_template_A4.docx';
+    $templatePath = __DIR__ . '/templates/' . $templateFile;
+    
     if (!file_exists($templatePath)) {
-        throw new Exception('Không tìm thấy file template');
+        // Nếu không tìm thấy template cụ thể, thử dùng template mặc định
+        $templatePath = __DIR__ . '/templates/contract_template_A4.docx';
+        if (!file_exists($templatePath)) {
+            throw new Exception('Không tìm thấy file template');
+        }
     }
     
     // Kiểm tra thư mục data
@@ -188,11 +212,11 @@ try {
     $templateProcessor->setValue('maHopDong', $maHopDong); // HD001, HD009, HD010, HD099, HD100
     $templateProcessor->setValue('maHopDongNumber', $maHopDongNumber); // 001, 009, 010, 099, 100
     
-    // Tạo tên file
+    // Tạo tên file với loại giấy
     $timestamp = date('YmdHis');
     $cleanName = preg_replace('/[^a-zA-Z0-9_\x{00C0}-\x{1EF9}\s]/u', '', $ho_ten);
     $cleanName = str_replace(' ', '_', $cleanName);
-    $filename = 'HopDong_' . $maHopDong . '_' . $cleanName . '_' . $timestamp . '.docx';
+    $filename = 'HopDong_' . $maHopDong . '_' . $selectedPaperType . '_' . $cleanName . '_' . $timestamp . '.docx';
     $filepath = $dataDir . '/' . $filename;
     
     // Lưu file
@@ -246,6 +270,7 @@ try {
         'message' => '✅ Tạo hợp đồng thành công!',
         'idHopDong' => $idHopDong,
         'maHopDong' => $maHopDong,
+        'paper_type' => $selectedPaperType,
         'auto_generated' => ($_POST['maHopDong'] ?? '') === '', // Kiểm tra xem mã có được tự động tạo không
         'filename' => $filename,
         'file_url' => 'data/' . $filename,
